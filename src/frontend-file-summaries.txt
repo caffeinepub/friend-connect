@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component managing authentication state, profile setup, friend selection, chat window, and video call interface with proper state coordination.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component with header containing branding and login button, main content area, and footer with feature icons and attribution.",
+  "frontend/src/components/LoginButton.tsx": "Authentication button component handling Internet Identity login/logout with loading states and proper error handling.",
+  "frontend/src/components/ProfileSetup.tsx": "Modal dialog for new users to set up their profile with username input and validation.",
+  "frontend/src/components/FriendsList.tsx": "Friends list component displaying all friends with online/offline status, selection state, and add friend functionality.",
+  "frontend/src/components/AddFriendDialog.tsx": "Dialog component for adding friends by Principal ID with validation and error handling.",
+  "frontend/src/components/ChatWindow.tsx": "Chat interface component displaying message history, input field, and video call button for selected friend.",
+  "frontend/src/components/MessageBubble.tsx": "Individual message bubble component with timestamp and visual distinction between sent and received messages.",
+  "frontend/src/components/VideoCallInterface.tsx": "Full-screen video call interface with local/remote video streams and call controls (mute, video toggle, end call).",
+  "frontend/src/components/CallNotification.tsx": "Incoming call notification component with accept/decline buttons (placeholder for future WebRTC signaling).",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including profile management, friends list, chat history, and call signaling.",
+  "frontend/src/hooks/useWebRTC.ts": "WebRTC hook managing peer-to-peer video connection, media streams, and call lifecycle.",
+  "frontend/src/index.css": "Global styles with OKLCH color system featuring warm coral, mint, and soft yellow palette for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom color tokens (coral, mint, soft-yellow), rounded corners, and friendly typography.",
+  "frontend/src/lib/toaster-provider.tsx": "Toast notification provider component using Sonner for user feedback.",
+  "frontend/src/main.tsx": "Application entry point with QueryClient, InternetIdentity, and Toaster providers."
+}

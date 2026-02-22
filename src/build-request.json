@@ -1,0 +1,166 @@
+{
+  "kind": "build_request",
+  "title": "Build social communication app with text chat and video calling",
+  "projectName": "Friend Connect",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a user authentication system using Internet Identity to allow users to register and log in securely",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Mujhe ek aap chahiye jisme me aur mare friends baat kar sake aur video call kar sake"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can authenticate using Internet Identity",
+        "Authenticated users have a unique identity that persists across sessions",
+        "The app displays the current user's authentication status"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a friends list management system where users can add friends, view their friends list, and see online/offline status",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Mujhe ek aap chahiye jisme me aur mare friends baat kar sake"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can send friend requests to other users by their principal ID or username",
+        "Users can accept or decline friend requests",
+        "The friends list displays all accepted friends",
+        "Friends' online/offline status is visible in the list"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a real-time text chat interface where users can send and receive text messages with their friends",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "me aur mare friends baat kar sake"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can select a friend from their friends list to open a chat window",
+        "Users can type and send text messages to the selected friend",
+        "Messages appear in chronological order in the chat window",
+        "New messages are displayed in real-time or with polling",
+        "Chat history is preserved and can be scrolled through"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Store chat messages in the backend with sender, recipient, timestamp, and message content, and provide query methods to retrieve chat history between two users",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "me aur mare friends baat kar sake"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Messages are persisted in the Motoko backend",
+        "Users can retrieve their complete chat history with any friend",
+        "Messages include timestamp, sender ID, recipient ID, and text content",
+        "Only participants in a conversation can access their messages"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create a video calling interface with start call, end call, mute/unmute, and camera on/off controls for peer-to-peer video calls between friends",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "video call kar sake"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can initiate a video call with a friend from the chat interface",
+        "The recipient receives a call notification and can accept or decline",
+        "During a call, both users see each other's video feed",
+        "Users can mute/unmute their microphone during a call",
+        "Users can turn their camera on/off during a call",
+        "Users can end the call at any time",
+        "The video call interface is intuitive and responsive"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement call signaling in the backend to manage video call sessions, including call invitations, acceptance, rejection, and session state tracking between users",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "video call kar sake"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend tracks active call sessions between users",
+        "Call invitations are stored and can be queried by the recipient",
+        "Call state (pending, active, ended) is maintained and accessible",
+        "Users cannot initiate multiple simultaneous calls",
+        "Call session data is cleaned up after calls end"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Design a modern, vibrant UI with a warm and friendly color scheme (using coral, mint green, and soft yellow accents) that emphasizes connection and communication, with rounded corners, subtle shadows, and playful typography to create an inviting social experience",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app uses a cohesive color palette centered on warm, friendly colors",
+        "UI elements have consistent rounded corners and depth",
+        "Typography is clear and approachable",
+        "The overall design feels modern and social-focused",
+        "Interactive elements provide clear visual feedback"
+      ]
+    }
+  ],
+  "constraints": [
+    "Real-time WebSocket communication is not supported; use polling or query-based approaches for message updates",
+    "Video calling must use WebRTC peer-to-peer connections; the backend only handles signaling",
+    "All user authentication must use Internet Identity only",
+    "No third-party communication APIs (Twilio, etc.) are available"
+  ],
+  "nonGoals": [
+    "Group video calls with more than two participants",
+    "Screen sharing functionality",
+    "File or image sharing in chat",
+    "Voice-only calls without video",
+    "End-to-end encryption of messages",
+    "Mobile app versions",
+    "Integration with external social media platforms"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Friendly illustration of two people talking with speech bubbles in coral and mint green colors for the landing page hero section (hero-chat.dim_1200x600.png)",
+      "Simple icon of a video camera in coral color for the video call button (video-icon.dim_64x64.png)",
+      "Icon of a chat bubble in mint green for the messaging feature (chat-icon.dim_64x64.png)"
+    ],
+    "edits": []
+  }
+}

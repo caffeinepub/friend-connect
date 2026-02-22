@@ -1,0 +1,69 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-20T10:29:14.665Z",
+  "summary": "The implementation covers most core requirements including Internet Identity authentication, user profiles, friends list management, text chat with polling, video call interface, and UI design. However, critical backend call signaling logic and several acceptance criteria related to call session management, friend request workflows, and message access control are either missing or incomplete.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Users can send friend requests to other users by their principal ID or username; Users can accept or decline friend requests",
+      "reason": "The backend's addFriend function directly adds friends without a request/accept/decline workflow. There is no mechanism for pending friend requests or acceptance/rejection.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Backend tracks active call sessions between users; Call invitations are stored and can be queried by the recipient; Call state (pending, active, ended) is maintained and accessible; Users cannot initiate multiple simultaneous calls; Call session data is cleaned up after calls end",
+      "reason": "The backend defines a CallSession type and a callSessions map, but the startCall and endCall functions are truncated or missing. There is no evidence of call invitation storage, state tracking, or enforcement of single-call constraints.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Only participants in a conversation can access their messages",
+      "reason": "The getChatHistory function in the backend is truncated. While there is filtering logic started, it is unclear if the access control fully restricts message retrieval to only the two participants.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "The recipient receives a call notification and can accept or decline",
+      "reason": "The CallNotification component exists but lacks integration with backend call invitations. The incomingCall state is never set from backend data, so no actual call invitations are received or displayed.",
+      "evidence": [
+        "frontend/src/components/CallNotification.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.75,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AddFriendDialog.tsx",
+    "frontend/src/components/CallNotification.tsx",
+    "frontend/src/components/ChatWindow.tsx",
+    "frontend/src/components/FriendsList.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/LoginButton.tsx",
+    "frontend/src/components/MessageBubble.tsx",
+    "frontend/src/components/ProfileSetup.tsx",
+    "frontend/src/components/VideoCallInterface.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useWebRTC.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/toaster-provider.tsx",
+    "frontend/src/main.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Friend Connect - Social Communication App Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create user authentication system using Internet Identity with automatic role assignment",
+      "acceptanceCriteria": [
+        "Users can authenticate using Internet Identity",
+        "Authenticated users have a unique identity that persists across sessions",
+        "The app displays the current user's authentication status"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create login/logout button component following the authorization component's usage instructions. Use the authorization component to provide Internet Identity authentication with proper state management, error handling, and query cache clearing on logout."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetup.tsx",
+          "operation": "create",
+          "description": "Create profile setup modal for new users. Use getCallerUserProfile to check if profile exists, and saveCallerUserProfile to save username. Follow the authorization component's pattern to prevent modal flash using proper loading state checks."
+        },
+        {
+          "path": "frontend/src/hooks/useGetCallerUserProfile.ts",
+          "operation": "create",
+          "description": "Create hook to fetch current user profile using getCallerUserProfile backend method. Follow the authorization component's usage instructions for preventing profile setup modal flash with proper actor dependency handling."
+        },
+        {
+          "path": "frontend/src/hooks/useSaveCallerUserProfile.ts",
+          "operation": "create",
+          "description": "Create mutation hook to save user profile using saveCallerUserProfile backend method with proper error handling and cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add authentication guard to require login before showing app content. Wire in LoginButton and ProfileSetup components. Clear all cached data on logout following authorization component guidance."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement friends list management system with add friends, view list, and online/offline status",
+      "acceptanceCriteria": [
+        "Users can send friend requests to other users by their principal ID or username",
+        "Users can accept or decline friend requests",
+        "The friends list displays all accepted friends",
+        "Friends' online/offline status is visible in the list"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FriendsList.tsx",
+          "operation": "create",
+          "description": "Create friends list component displaying all friends with their username and online/offline status. Use getFriendsList backend method to fetch friends, then getUserProfile and getUserStatus for each friend to display names and status indicators."
+        },
+        {
+          "path": "frontend/src/components/AddFriendDialog.tsx",
+          "operation": "create",
+          "description": "Create dialog component with input field for principal ID to add new friends. Use addFriend backend method and validate principal format before submission."
+        },
+        {
+          "path": "frontend/src/hooks/useGetFriendsList.ts",
+          "operation": "create",
+          "description": "Create query hook to fetch friends list using getFriendsList backend method with polling enabled for real-time updates."
+        },
+        {
+          "path": "frontend/src/hooks/useAddFriend.ts",
+          "operation": "create",
+          "description": "Create mutation hook to add friend using addFriend backend method with optimistic updates and cache invalidation."
+        },
+        {
+          "path": "frontend/src/hooks/useGetUserProfile.ts",
+          "operation": "create",
+          "description": "Create query hook to fetch user profile by principal using getUserProfile backend method."
+        },
+        {
+          "path": "frontend/src/hooks/useGetUserStatus.ts",
+          "operation": "create",
+          "description": "Create query hook to fetch user online status using getUserStatus backend method with polling for status updates."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build real-time text chat interface with message history and polling-based updates",
+      "acceptanceCriteria": [
+        "Users can select a friend from their friends list to open a chat window",
+        "Users can type and send text messages to the selected friend",
+        "Messages appear in chronological order in the chat window",
+        "New messages are displayed in real-time or with polling",
+        "Chat history is preserved and can be scrolled through"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ChatWindow.tsx",
+          "operation": "create",
+          "description": "Create chat window component displaying message history in chronological order with message bubbles, timestamps, and sender indicators. Use getChatHistory for loading history and polling for new messages. Include text input and send button."
+        },
+        {
+          "path": "frontend/src/components/MessageBubble.tsx",
+          "operation": "create",
+          "description": "Create message bubble component showing message content, timestamp, and visual distinction between sent and received messages."
+        },
+        {
+          "path": "frontend/src/hooks/useGetChatHistory.ts",
+          "operation": "create",
+          "description": "Create query hook to fetch chat history using getChatHistory backend method with automatic polling enabled for new messages (refetchInterval: 2000)."
+        },
+        {
+          "path": "frontend/src/hooks/useSendMessage.ts",
+          "operation": "create",
+          "description": "Create mutation hook to send messages using sendMessage backend method with optimistic updates and cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add state management for selected friend and wire ChatWindow to appear when a friend is selected from FriendsList. Pass selected friend principal to ChatWindow."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create video calling interface with WebRTC peer-to-peer connection and call controls",
+      "acceptanceCriteria": [
+        "Users can initiate a video call with a friend from the chat interface",
+        "The recipient receives a call notification and can accept or decline",
+        "During a call, both users see each other's video feed",
+        "Users can mute/unmute their microphone during a call",
+        "Users can turn their camera on/off during a call",
+        "Users can end the call at any time",
+        "The video call interface is intuitive and responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/VideoCallInterface.tsx",
+          "operation": "create",
+          "description": "Create video call interface with local and remote video elements, control buttons for mute/unmute, camera on/off, and end call. Use the camera component to provide webcam access with proper error handling. Use WebRTC RTCPeerConnection for peer-to-peer video. Wire generated video-icon.dim_64x64.png from frontend/public/assets/generated/video-icon.dim_64x64.png for the video call button."
+        },
+        {
+          "path": "frontend/src/components/CallNotification.tsx",
+          "operation": "create",
+          "description": "Create call notification component showing incoming call with accept/decline buttons. Poll backend for incoming call invitations and trigger notification display."
+        },
+        {
+          "path": "frontend/src/hooks/useWebRTC.ts",
+          "operation": "create",
+          "description": "Create WebRTC hook managing RTCPeerConnection, offer/answer exchange via backend signaling (startCall, endCall), ICE candidate handling, and stream management. Verify the camera component's usage instructions before implementing webcam integration."
+        },
+        {
+          "path": "frontend/src/hooks/useStartCall.ts",
+          "operation": "create",
+          "description": "Create mutation hook to initiate call using startCall backend method for signaling."
+        },
+        {
+          "path": "frontend/src/hooks/useEndCall.ts",
+          "operation": "create",
+          "description": "Create mutation hook to end call using endCall backend method and cleanup WebRTC connection."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add video call state management and wire VideoCallInterface and CallNotification components. Show video interface when call is active, hide chat window during call."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Design modern vibrant UI with warm color scheme emphasizing connection and communication",
+      "acceptanceCriteria": [
+        "The app uses a cohesive color palette centered on warm, friendly colors",
+        "UI elements have consistent rounded corners and depth",
+        "Typography is clear and approachable",
+        "The overall design feels modern and social-focused",
+        "Interactive elements provide clear visual feedback"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with custom CSS variables for coral (#FF6B6B), mint green (#4ECDC4), and soft yellow (#FFE66D) color palette. Add rounded corner utilities, subtle shadow classes, and friendly typography settings."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors (coral, mint, soft-yellow), rounded corner defaults, shadow utilities, and friendly font settings to support the warm, inviting design system."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create layout component with header containing app branding and LoginButton. Include hero section with generated hero-chat.dim_1200x600.png from frontend/public/assets/generated/hero-chat.dim_1200x600.png and welcoming message for unauthenticated users."
+        },
+        {
+          "path": "frontend/src/components/FeatureIcons.tsx",
+          "operation": "create",
+          "description": "Create component displaying feature icons using generated images: video-icon.dim_64x64.png from frontend/public/assets/generated/video-icon.dim_64x64.png for video calling and chat-icon.dim_64x64.png from frontend/public/assets/generated/chat-icon.dim_64x64.png for messaging."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap application content in Layout component to apply consistent branding, navigation, and hero section for unauthenticated state."
+        }
+      ]
+    }
+  ]
+}

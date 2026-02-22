@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A social communication app for chatting and video calling with friends",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Friendly illustration of two people talking with speech bubbles in coral and mint green colors for the landing page hero section (hero-chat.dim_1200x600.png)\n- Simple icon of a video camera in coral color for the video call button (video-icon.dim_64x64.png)\n- Icon of a chat bubble in mint green for the messaging feature (chat-icon.dim_64x64.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-user-authentication-system-using-internet-identity-to-allow-users-to-register-and-log-in-securely",
+      "title": "Create a user authentication system using Internet Identity to allow users to register and log in securely",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-friends-list-management-system-where-users-can-add-friends-view-their-friends-list-and-see-online-offline-status",
+      "title": "Implement a friends list management system where users can add friends, view their friends list, and see online/offline status",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-real-time-text-chat-interface-where-users-can-send-and-receive-text-messages-with-their-friends",
+      "title": "Build a real-time text chat interface where users can send and receive text messages with their friends",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-video-calling-interface-with-start-call-end-call-mute-unmute-and-camera-on-off-controls-for-peer-to-peer-video-calls-between-friends",
+      "title": "Create a video calling interface with start call, end call, mute/unmute, and camera on/off controls for peer-to-peer video calls between friends",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-modern-vibrant-ui-with-a-warm-and-friendly-color-scheme-using-coral-mint-green-and-soft-yellow-accents-that-emphasizes-connection-and-communication-with-rounded-corners-subtle-shadows-and-playful-typography-to-create-an-inviting-social-experience",
+      "title": "Design a modern, vibrant UI with a warm and friendly color scheme (using coral, mint green, and soft yellow accents) that emphasizes connection and communication, with rounded corners, subtle shadows, and playful typography to create an inviting social experience",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Text chat functionality between friends",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Video call functionality with friends",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Store chat messages in the backend with sender, recipient, timestamp, and message content, and provide query methods to retrieve chat history between two users",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement call signaling in the backend to manage video call sessions, including call invitations, acceptance, rejection, and session state tracking between users",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Friend Connect",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

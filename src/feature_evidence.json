@@ -1,0 +1,116 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-user-authentication-system-using-internet-identity-to-allow-users-to-register-and-log-in-securely",
+      "featureTitle": "Create a user authentication system using Internet Identity to allow users to register and log in securely",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/ProfileSetup.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-friends-list-management-system-where-users-can-add-friends-view-their-friends-list-and-see-online-offline-status",
+      "featureTitle": "Implement a friends list management system where users can add friends, view their friends list, and see online/offline status",
+      "files": [
+        "frontend/src/components/AddFriendDialog.tsx",
+        "frontend/src/components/FriendsList.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-real-time-text-chat-interface-where-users-can-send-and-receive-text-messages-with-their-friends",
+      "featureTitle": "Build a real-time text chat interface where users can send and receive text messages with their friends",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ChatWindow.tsx",
+        "frontend/src/components/MessageBubble.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-video-calling-interface-with-start-call-end-call-mute-unmute-and-camera-on-off-controls-for-peer-to-peer-video-calls-between-friends",
+      "featureTitle": "Create a video calling interface with start call, end call, mute/unmute, and camera on/off controls for peer-to-peer video calls between friends",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CallNotification.tsx",
+        "frontend/src/components/VideoCallInterface.tsx",
+        "frontend/src/hooks/useWebRTC.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-modern-vibrant-ui-with-a-warm-and-friendly-color-scheme-using-coral-mint-green-and-soft-yellow-accents-that-emphasizes-connection-and-communication-with-rounded-corners-subtle-shadows-and-playful-typography-to-create-an-inviting-social-experience",
+      "featureTitle": "Design a modern, vibrant UI with a warm and friendly color scheme (using coral, mint green, and soft yellow accents) that emphasizes connection and communication, with rounded corners, subtle shadows, and playful typography to create an inviting social experience",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
